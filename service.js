@@ -22,17 +22,22 @@ server.listen(config.server.port, () => {
 });
 
 io.on('connection', (socket) => {
+  log('New connection');
   socket.on('hello', (data) => {
+    log('Receive hello event', data);
     socket.minerId = data.id; // eslint-disable-line
     minersPool.push(data);
+    socket.emit('miners', minersPool);
     socket.broadcast.emit('miners', minersPool);
   });
-  socket.on('block', () => {
+  socket.on('block', ({ minerId }) => {
+    log('Receive block event from', minerId);
     socket.broadcast.emit('block', {
-      miner: socket.minerId,
+      minerId,
     });
   });
   socket.on('disconnect', () => {
+    log('Receive disconnect event from', socket.minerId);
     minersPool = minersPool.filter(({ id }) => id !== socket.minerId);
     socket.broadcast.emit('miners', minersPool);
   });
