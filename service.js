@@ -1,5 +1,6 @@
 const config = require('config');
 const express = require('express');
+const cors = require('cors');
 const createHttpServer = require('http').createServer;
 const socketIO = require('socket.io');
 const createDebug = require('debug');
@@ -13,6 +14,7 @@ const app = express();
 const server = createHttpServer(app);
 const io = socketIO(server);
 
+app.use(cors());
 app.use((req, res) =>
   res.json(minersPool));
 
