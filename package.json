@@ -1,5 +1,5 @@
 {
-  "name": "jscoinOrchestrator",
+  "name": "jscoin-miner-pool",
   "version": "0.0.1",
   "description": "Playing with blockchain",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dpanchenko/jscoinMiner.git"
+    "url": "git+https://github.com/dpanchenko/jscoinMinerPool.git"
   },
   "author": "Dmitry Panchenko",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dpanchenko/jscoinMiner/issues"
+    "url": "https://github.com/dpanchenko/jscoinMinerPool/issues"
   },
-  "homepage": "https://github.com/dpanchenko/jscoinMiner#readme",
+  "homepage": "https://github.com/dpanchenko/jscoinMinerPool#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -33,6 +33,7 @@
     "cors": "^2.8.4",
     "debug": "^3.1.0",
     "express": "^4.16.3",
+    "forever": "^0.15.3",
     "socket.io": "^2.1.1"
   }
 }
